@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pythonapp1
+spec:
+  rules:
+    - host: "pythonapp1.alex.com"
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pythonapp1
+                port:
+                  number: 5000
